@@ -1,1 +1,18 @@
-<p>users works!</p>
+<p-table [caption]="'Users'">
+    <p-table-head>
+        <p-table-head-row>
+            <p-table-head-cell>ID</p-table-head-cell>
+            <p-table-head-cell>Name</p-table-head-cell>
+            <p-table-head-cell>Address</p-table-head-cell>
+            <p-table-head-cell>Delete</p-table-head-cell>
+        </p-table-head-row>
+    </p-table-head>
+    <p-table-body>
+        <p-table-row *ngFor="let user of users; let i = index">
+            <p-table-cell>{{ i }}</p-table-cell>
+            <p-table-cell>{{ user.name }}</p-table-cell>
+            <p-table-cell>{{ user.address }}</p-table-cell>
+            <p-table-cell>{{ user.skills }}</p-table-cell>
+        </p-table-row>
+    </p-table-body>
+</p-table>
