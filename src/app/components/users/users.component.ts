@@ -22,6 +22,10 @@ export class UsersComponent implements OnInit {
     this.users = this.userService.getUsers();
   }
 
+  deleteUser(id: number): void {
+    this.userService.deleteUser(id);
+  }
+
   onSubmit(ngForm : NgForm): void {
     this.userService.saveUser(ngForm.value);
   }

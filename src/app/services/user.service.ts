@@ -22,6 +22,10 @@ export class UserService {
     this.USERS.push(user);
   }
 
+  deleteUser(id: number) {
+    this.USERS.splice(id, 1);
+  }
+
   constructor() { 
 
   }

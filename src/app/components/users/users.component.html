@@ -24,7 +24,7 @@
             <p-table-cell>{{ i }}</p-table-cell>
             <p-table-cell>{{ user.name }}</p-table-cell>
             <p-table-cell>{{ user.address }}</p-table-cell>
-            <p-table-cell>{{ user.skills }}</p-table-cell>
+            <p-table-cell (click)="deleteUser(i)"><p-icon name="close" aria="{ 'aria-label': 'Close icon' }"></p-icon></p-table-cell>
         </p-table-row>
     </p-table-body>
 </p-table>
