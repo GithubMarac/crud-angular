@@ -1,3 +1,15 @@
+<form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)" >
+    <p-text-field-wrapper [label]="'Name'">
+        <input [type]="'text'" [name]="'name'" [value]="'Name'" [maxLength]="20" ngModel required />
+    </p-text-field-wrapper>
+
+    <p-text-field-wrapper [label]="'Address'" [showCharacterCount]="false">
+        <input [type]="'text'" [name]="'address'" [value]="'Address'" [maxLength]="20" ngModel required />
+    </p-text-field-wrapper>
+
+    <p-button type="submit" [variant]="'primary'" [disabled]="!userForm.form.valid">Add User</p-button>
+</form>
+
 <p-table [caption]="'Users'">
     <p-table-head>
         <p-table-head-row>
@@ -8,7 +20,7 @@
         </p-table-head-row>
     </p-table-head>
     <p-table-body>
-        <p-table-row *ngFor="let user of users; let i = index">
+        <p-table-row *ngFor="let user of (users | async); let i = index">
             <p-table-cell>{{ i }}</p-table-cell>
             <p-table-cell>{{ user.name }}</p-table-cell>
             <p-table-cell>{{ user.address }}</p-table-cell>

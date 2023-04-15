@@ -17,6 +17,11 @@ export class UserService {
       const users = of(this.USERS);
       return users;
   }
+
+  saveUser(user: any) {
+    this.USERS.push(user);
+  }
+
   constructor() { 
 
   }

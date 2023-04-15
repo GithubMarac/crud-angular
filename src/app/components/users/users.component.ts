@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, NgForm } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 
@@ -8,17 +10,20 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  users: Array<User> = [];
+  users: Observable<User[]> | undefined;
 
   constructor(private userService: UserService){ }
 
   ngOnInit(): void {
-    this.getUser();
+    this.getUsers();
   }
 
-  getUser(): void {
-    this.userService.getUsers()
-        .subscribe(users => this.users = users);
+  getUsers(): void {
+    this.users = this.userService.getUsers();
+  }
+
+  onSubmit(ngForm : NgForm): void {
+    this.userService.saveUser(ngForm.value);
   }
 
 }
